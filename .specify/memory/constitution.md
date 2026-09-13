@@ -1,50 +1,77 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report
+- Version change: 0.0.0 -> 1.0.0
+- Modified principles: none (new constitution baseline)
+- Added sections: Core Principles, Operational Constraints, Development Workflow, Governance
+- Removed sections: none
+- Deferred items: RATIFICATION_DATE pending original adoption date confirmation
+-->
+
+# ContosoDashboard Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Training-Safe Scope
+This repository exists for learning and demonstration, not for production deployment.
+All features, security practices, and architectural choices must be clearly labeled as
+training-oriented, and no change may claim production readiness without an explicit upgrade
+path and validation outside this training context.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Security by Default
+Every user-facing workflow must enforce authentication, authorization, and data isolation.
+Mock authentication may be used only for training; any security control must protect against
+unauthorized access, misuse, and direct object reference attacks by default.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Validation Before Completion
+No feature is complete until the relevant behavior is validated with a real execution path.
+Changes must be testable, reproducible, and checked in the application environment where
+possible before merge or approval. When a requirement cannot be validated, the gap must be
+documented rather than assumed.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Architecture Clarity
+The codebase must favor clear separation of concerns, explicit contracts, and maintainable
+patterns over clever shortcuts. Shared logic belongs in services or domain boundaries, not in
+duplicated page logic; infrastructure dependencies must remain replaceable for offline or
+cloud migration scenarios.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Offline-First and Learning-Oriented Delivery
+The project must remain runnable in a local, offline environment without external cloud
+dependencies. New features must preserve the training goal, minimize operational friction,
+and document any required assumptions, limitations, or migration paths.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Operational Constraints
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+The project is intentionally limited to a mock, educational environment. Use local
+development data, local authentication flows, and file-based or in-memory storage unless the
+work explicitly introduces a documented training demonstration. Any change that adds external
+services, external identities, or production-grade security controls must state the rationale
+and whether it remains a training-only adaptation.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+## Development Workflow
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+All changes must be made in small, reviewable units with clear intent and direct links to
+stated requirements. Feature work must preserve the existing training narrative, keep the code
+understandable to junior developers, and avoid hidden state or undocumented integration
+points. Reviews must check compliance with the principles above, security boundaries, and
+clear documentation of trade-offs.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution supersedes informal conventions within this repository. Amendments require
+a documented rationale, explicit approval from the maintainers, and a clear statement of the
+impact on existing practices. Changes that alter architecture, security assumptions, or
+required validation paths must include migration notes when relevant.
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+The project is governed by the following rules:
+- All substantive changes must remain consistent with the five core principles.
+- Security-sensitive changes require explicit review of access control, authentication,
+  and data isolation assumptions.
+- Work that changes the runtime environment, deployment model, or external dependencies
+  must document the risk and the offline-training impact.
+- Quality gates are mandatory: behavior must be validated, and unresolved assumptions must
+  be recorded before completion.
+- Versioning follows semantic versioning: MAJOR for breaking governance or architectural
+  changes, MINOR for new principles or materially expanded guidance, and PATCH for
+  clarifications or wording refinements.
+
+**Version**: 1.0.0 | **Ratified**: TODO(RATIFICATION_DATE): original adoption date not yet recorded | **Last Amended**: 2026-09-13
